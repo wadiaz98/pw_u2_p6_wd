@@ -15,7 +15,13 @@
       <header></header>
       <nav></nav>
       <section>
-        <button @click="agregar()">Agregar</button>
+        <label for="idNombre" >Nombre:</label>
+        <input id="idNombre" type="text" v-model="nombre">
+
+        <label for="idApellido" >Apellido:</label>
+        <input @keypress.enter="agregar2" id="idApellido" type="text" v-model="apellido">
+
+        <!-- <button @click="agregar()">Agregar</button> -->
         <ul>
           <!-- <li>{{lista[0].nombre}} A: {{lista[0].Apellido}}</li>
 
@@ -31,10 +37,10 @@
           <br />
           <li>{{lista[4]}}</li> -->
 
-          <li v-for="({nombre, Apellido}, index) in lista">
+          <li  v-for="({nombre, Apellido}, index) in lista">
 
-            <h3>{{index + 1}} - {{nombre}}</h3>
-            <h4>{{Apellido}}</h4>
+            <h3 v-if="nombre">{{index + 1}} - {{nombre}}</h3>
+            <h4 v-if="Apellido">{{Apellido}}</h4>
           </li>
         </ul>
       </section>
